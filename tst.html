@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Box</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: lightskyblue;
+      }
+
+      .login-container {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+
+      .login-box {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 100px; /* Increased padding for a bigger login box */
+        max-width: 400px; /* Increased max-width for a wider login box */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the items horizontally */
+      }
+
+      .login-title {
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .login-button {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .login-button:hover {
+        background-color: #0056b3;
+      }
+
+      .login-options {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .login-options.active {
+        display: block;
+      }
+      /*  styles for the "Continue with Google" and "Continue with Facebook" buttons */
+      .login-options button.login-button {
+        background-color: #cccccc;
+        color: #333333;
+      }
+
+      .login-options button.login-button:hover {
+        background-color: #bbbbbb;
+      }
+      /* Add space between Student ID and Password boxes */
+      .login-options input[type="text"],
+      .login-options input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <div class="login-title">Login</div>
+        <button class="login-button" onclick="showStudentLogin()">
+          Student ID
+        </button>
+        <button class="login-button" onclick="showGuestLogin()">Guest</button>
+        <div class="login-options" id="studentLogin">
+          <input type="text" placeholder="Student ID" />
+          <input type="password" placeholder="Password" />
+        </div>
+        <div class="login-options" id="guestLogin">
+          <button class="login-button">Continue with Google</button>
+          <a href="apply-now.html" target="_blank"
+            ><button class="login-button">Continue with Facebook</button></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showStudentLogin() {
+        const studentLogin = document.getElementById("studentLogin");
+        const guestLogin = document.getElementById("guestLogin");
+        studentLogin.classList.add("active");
+        guestLogin.classList.remove("active");
+      }
+
+      function showGuestLogin() {
+        const studentLogin = document.getElementById("studentLogin");
+        const guestLogin = document.getElementById("guestLogin");
+        guestLogin.classList.add("active");
+        studentLogin.classList.remove("active");
+      }
+    </script>
+  </body>
+</html>
